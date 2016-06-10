@@ -1,0 +1,23 @@
+{
+  "name": "shrink-link",
+  "version": "0.0.1",
+  "description": "service to shorten urls and make them memorable",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gangezilla/shrink-link.git"
+  },
+  "author": "Scott Gangemi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gangezilla/shrink-link/issues"
+  },
+  "homepage": "https://github.com/Gangezilla/shrink-link#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "mongodb": "^2.1.18"
+  }
+}
