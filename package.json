@@ -17,7 +17,12 @@
   },
   "homepage": "https://github.com/Gangezilla/shrink-link#readme",
   "dependencies": {
+    "body-parser": "^1.15.1",
+    "cheerio": "^0.20.0",
+    "connect": "^3.4.1",
     "express": "^4.13.4",
-    "mongodb": "^2.1.18"
+    "jquery": "^3.0.0",
+    "mongodb": "^2.1.18",
+    "word-list-json": "^0.2.0"
   }
 }
