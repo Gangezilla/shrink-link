@@ -29,7 +29,7 @@ MongoClient.connect(url, function(err, db) {
     if (err) {
         console.log(err);
     } else {
-        console.log('connected');
+        console.log('Connected to the Mongo server.');
     }
 });
 

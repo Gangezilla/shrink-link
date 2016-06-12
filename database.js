@@ -26,14 +26,44 @@ module.exports = {
         });
       },
 
-      pass:function(doc, db){
-        //how to pass db in here to write in...???
-        module.exports.mongoInsert(db, 'urls', doc, function(user_res){
-          console.log(user_res);
+      //, {urlOutput:1}
+      mongoCheckInput:function(db, collection_name, data, cb) {
+        var collection=db.collection(collection_name);
+        collection.find({urlInput:data.urlInput}).toArray(function (err, result) {
+          console.log(result);
+            cb(result);
+        });
+        // collection.find({urlOutput:data.urlOutput},
+        //   function (err, data) {
+        //     if (err) throw err;
+        //     else {
+        //       cb(data);
+        //     }
+        //   });
+        //
+        // db.collection.findOne({
+        //   urlOutput:data.urlOutput
+        // }, function (err, doc) {
+        //   if (err||!doc) cb(null);
+        //   else cb(doc.text);
+        // });
+
+      },
+
+      pass:function(doc, db, urlInput){
+        //check if linkInput, and linkOutput exist in the database already.
+        //
+        // module.exports.mongoInsert(db, 'urls', doc, function(user_res){
+        //   console.log(user_res);
+        //   db.close();
+        // });
+        module.exports.mongoCheckInput(db, 'urls', doc, function(user_res) {
+          //console.log(user_res);
           db.close();
         });
 
-      }
+      },
+
 };
 
     // writeToDB: function(urlInput, urlOutput) {
