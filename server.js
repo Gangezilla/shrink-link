@@ -29,7 +29,9 @@ app.set('view engine', 'ejs');
 app.set('views', __dirname + '/templates');
 
 var port = process.env.PORT || 8080;
-app.listen(port);
+app.listen(port, function() {
+    console.log('listening on '+port);
+});
 app.use(express.static(path.join(__dirname, 'assets')));
 app.use(bodyParser.urlencoded({
     extended: true
