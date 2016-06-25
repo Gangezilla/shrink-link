@@ -5,7 +5,11 @@ background: linear-gradient(to left, #4B79A1 , #283E51); /* W3C, IE 10+/ Edge, F
 text-align:center;
 }
 
-p {
+.sorry {
+	padding:50px;
+}
+
+p, span, label, a {
 	color:white;
 	text-align:center;
 }
@@ -17,16 +21,18 @@ h1.container, h1 {
 
 .formDiv {
 	text-align:center;
-	padding:50px 0 50px 0;
+	margin:50px auto 50px auto;
+	background-color:rgba(255,255,255,0.4);
+	border-radius:30px;
+	padding:30px;
+	width:80%;
 }
 
 .formDiv input {
 	margin:30px;
 }
 
-.bodyContainer {
-}
-
-form {
+.copy {
+	padding:50px;
 }
 

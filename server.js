@@ -15,7 +15,6 @@ var database = require('./database');
 var urlOutput;
 var urlInput;
 var datab;
-var clientReceive;
 
 MongoClient.connect(url, function(err, db) {
     datab = db;
@@ -43,7 +42,7 @@ app.post("/", function(req, res) {
     urlInput = req.body.url;
     prepareLink.prepareLink(urlInput, datab, function(data) {
         console.log(data.ops);
-        res.render('redirect', { data: data.ops});
+        res.render('redirect', { urlInput: data.ops[0].urlInput.replace('"', ""), urlOutput: data.ops[0].urlOutput.replace('"', "")});
     });
 });
 

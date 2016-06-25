@@ -4,15 +4,13 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <h1>Shrink Link</h1>
-  <div class="copy">
-  	<p> Here we go! Just grab the urlOutput, paste it at the end of https://shrink-link.herokuapp.com/ and you'll be taken right to there.
+  <a class="btn" href="https://shrink-link.herokuapp.com/"><h1>Shrink Link</h1></a>
+  <div class="formDiv">
+  	<p> Here we go! Just grab the output beneath and use this whenever you want some redirection magic, and you'll be taken right there.
   <div class="receivedData">
-  <label for="basic-url">Link:</label>
+  <label for="basic-url">Your link: <%-urlInput -%></label>
 <div class="input-group">
-  <span class="input-group-addon" id="basic-addon3">https://shrink-link.herokuapp.com/</span>
-  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+  <span class="input-group-addon" id="basic-addon3"><a href="https://shrink-link.herokuapp.com/<%- urlOutput -%>">https://shrink-link.herokuapp.com/<%- urlOutput -%></a></span>
 </div>
-  <%- JSON.stringify(data); -%>
   </div>
 </body>
