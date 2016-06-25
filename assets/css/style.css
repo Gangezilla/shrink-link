@@ -1,3 +1,32 @@
-h1 {
-	color:red;
+body, html {
+background: #4B79A1; /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #4B79A1 , #283E51); /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #4B79A1 , #283E51); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+text-align:center;
 }
+
+p {
+	color:white;
+	text-align:center;
+}
+
+h1.container, h1 {
+	color:white;
+	text-align:center;
+}
+
+.formDiv {
+	text-align:center;
+	padding:50px 0 50px 0;
+}
+
+.formDiv input {
+	margin:30px;
+}
+
+.bodyContainer {
+}
+
+form {
+}
+

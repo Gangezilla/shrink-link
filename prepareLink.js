@@ -38,7 +38,7 @@ module.exports = {
         });
     },
 
-    prepareLink: function(urlInput, db) {
+    prepareLink: function(urlInput, db, cb) {
         getColors();
         getWord();
         urlOutput = stuff.color + "-" + stuff.word;
@@ -46,7 +46,9 @@ module.exports = {
         	urlInput: urlInput,
         	urlOutput: urlOutput
         };
-        database.pass(doc, db);
+        database.pass(doc, db, function(data) {
+            cb(data);
+        });
     },
 };
 

@@ -17,6 +17,15 @@ var urlInput;
 var datab;
 var clientReceive;
 
+MongoClient.connect(url, function(err, db) {
+    datab = db;
+    if (err) {
+        console.log(err);
+    } else {
+        console.log('Connected to the Mongo server.');
+    }
+});
+
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/templates');
 
@@ -29,38 +38,18 @@ app.use(bodyParser.urlencoded({
 
 prepareLink.parseColors();
 
-MongoClient.connect(url, function(err, db) {
-    datab = db;
-    if (err) {
-        console.log(err);
-    } else {
-        console.log('Connected to the Mongo server.');
-    }
-});
-
 app.use(bodyParser.json());
 app.post("/", function(req, res) {
     urlInput = req.body.url;
-    prepareLink.prepareLink(urlInput, datab);
-    //do something with url.
+    prepareLink.prepareLink(urlInput, datab, function(data) {
+        console.log(data.ops);
+        res.render('redirect', { data: data.ops});
+    });
 });
 
 app.get("/", function(req, res) {
-    res.render('index', { data: clientReceive });
+    res.render('index');
 });
-
-// app.post("/get_users_list", function(req, res) {
-//         var body = req.body;
-//         db.getUsersByCity(body.city, function(err, data){
-//             if (err) {
-//                 console.log(err);
-//                 return res(err);
-//             } else {
-//                 console.log(data);
-//                 return res.json(data);
-//             }
-//         });
-//     });
 
 app.get('/:urlOutput', function(req, res) {
     var doc = {
@@ -73,9 +62,7 @@ app.get('/:urlOutput', function(req, res) {
             return data(err);
         } else {
             if (data.length === 0) {
-                //do nothing.
-                console.log('link not found.');
-                res.redirect('/');
+                res.render('redirectFail.ejs');
             } else {
                 console.log(data);
                 res.redirect(data[0].urlInput);
@@ -84,10 +71,3 @@ app.get('/:urlOutput', function(req, res) {
         }
     });
 });
-// db.close();
-//                console.log('redirecting...');
-//                x=res[0].urlInput;
-//                res.redirect(res);
-
-
-//will need a HTML page to show the new URL. shouldn't need a 'new' page, jsut the old one with DOM manipulation.
