@@ -66,9 +66,10 @@ module.exports = {
 
     pass: function(doc, db, cb) {
         module.exports.mongoCheckInput(db, 'urls', doc, function(user_res) {
-            //console.log(user_res);
             output = user_res;
-            db.close();
+            // db.close(function() {
+            //     console.log('Closing up the database now');
+            // });
             cb(output);
             return output;
         });
