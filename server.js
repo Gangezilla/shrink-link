@@ -30,7 +30,7 @@ app.set('views', __dirname + '/templates');
 
 var port = process.env.PORT || 8080;
 app.listen(port, function() {
-    console.log('listening on '+port);
+    console.log('listening on ' + port);
 });
 app.use(express.static(path.join(__dirname, 'assets')));
 app.use(bodyParser.urlencoded({
@@ -43,14 +43,27 @@ app.use(bodyParser.json());
 app.post("/", function(req, res) {
     urlInput = req.body.url;
     prepareLink.prepareLink(urlInput, datab, function(data) {
+        console.log("youve got in server.js: " + JSON.stringify(data));
         console.log(data.ops);
-        res.render('redirect', { urlInput: data.ops[0].urlInput.replace('"', ""), urlOutput: data.ops[0].urlOutput.replace('"', "")});
+        if (data.ops !== undefined) {
+            res.render('redirect', { urlInput: data.ops[0].urlInput.replace('"', ""), urlOutput: data.ops[0].urlOutput.replace('"', "") });
+        } else {
+            res.render('redirect', { urlInput: data[0].urlInput.replace('"', ""), urlOutput: data[0].urlOutput.replace('"', "") });
+        }
     });
 });
 
 app.get("/", function(req, res) {
     res.render('index');
 });
+
+function addhttp(res, url) {
+    if (!/^(f|ht)tps?:\/\//i.test(url)) {
+        url = "http://" + url;
+    }
+    res.redirect(url);
+    return url;
+}
 
 app.get('/:urlOutput', function(req, res) {
     var doc = {
@@ -65,9 +78,7 @@ app.get('/:urlOutput', function(req, res) {
             if (data.length === 0) {
                 res.render('redirectFail.ejs');
             } else {
-                console.log(data);
-                res.redirect(data[0].urlInput);
-                //return res.json(data);
+                addhttp(res, data[0].urlInput);
             }
         }
     });
