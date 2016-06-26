@@ -43,8 +43,6 @@ app.use(bodyParser.json());
 app.post("/", function(req, res) {
     urlInput = req.body.url;
     prepareLink.prepareLink(urlInput, datab, function(data) {
-        console.log("youve got in server.js: " + JSON.stringify(data));
-        console.log(data.ops);
         if (data.ops !== undefined) {
             res.render('redirect', { urlInput: data.ops[0].urlInput.replace('"', ""), urlOutput: data.ops[0].urlOutput.replace('"', "") });
         } else {

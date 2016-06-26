@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <head>
   <title>Shrink Link</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Fauna+One' rel='stylesheet' type='text/css'>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <a class="btn" href="https://shrink-link.herokuapp.com/"><h1>Shrink Link</h1></a>
+<div class="titleBar container">
+<a class="" href="https://shrink-link.herokuapp.com/"><h1>Shrink Link</h1></a>
+<a class="me" href="http://www.scottgangemi.com">
+  <h4> Scott Gangemi </h4>
+  </a>
+</div>
   <div class="formDiv">
   	<p> Here we go! Just grab the output beneath and use this whenever you want some redirection magic, and you'll be taken right there.
   <div class="receivedData">
   <label for="basic-url">Your link: <%-urlInput -%></label>
-<div class="input-group">
-  <span class="input-group-addon" id="basic-addon3"><a href="https://shrink-link.herokuapp.com/<%- urlOutput -%>">https://shrink-link.herokuapp.com/<%- urlOutput -%></a></span>
+<div class="pDiv">
+  <span class="" id="basic-addon3"><a href="https://shrink-link.herokuapp.com/<%- urlOutput -%>">https://shrink-link.herokuapp.com/<%- urlOutput -%></a></span>
 </div>
   </div>
 </body>

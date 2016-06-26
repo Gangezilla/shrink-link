@@ -5,18 +5,44 @@ background: linear-gradient(to left, #4B79A1 , #283E51); /* W3C, IE 10+/ Edge, F
 text-align:center;
 }
 
+.titleBar {
+	/*background-color:rgb(255,255,255);*/
+	border-bottom:1px solid white;
+	padding-bottom: 20px;
+	display:flex;
+	flex-direction:row;
+	justify-content: space-around;
+}
+
+.titleBar h1 {
+	/*text-align:left;*/
+	font-family: 'Playfair Display', serif;
+	color:white;
+}
+
+.titleBar h1:hover {
+	color:#828282;
+	transition:0.5s;
+}
+
+.titleBar a {
+	align-self:flex-end;
+	color:white;
+	text-decoration: none;
+}
+
+.titleBar a:hover {
+	color:#828282;
+	transition:0.5s;
+}
+
 .sorry {
 	padding:50px;
 }
 
 p, span, label, a {
 	color:white;
-	text-align:center;
-}
-
-h1.container, h1 {
-	color:white;
-	text-align:center;
+	font-family: 'Fauna One', serif;
 }
 
 .formDiv {
@@ -29,10 +55,28 @@ h1.container, h1 {
 }
 
 .formDiv input {
-	margin:30px;
+	/*margin:30px;*/
+	width:100%;
 }
 
 .copy {
 	padding:50px;
+}
+
+.formGroup {
+	width:100%;
+}
+
+.navbar-form .form-group {
+	width:80%;
+}
+
+.navbar-form .form-control {
+	width:100%;
+}
+
+.pDiv {
+	width:80%;
+	margin:0 auto;
 }
 
